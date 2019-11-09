@@ -24,6 +24,7 @@
     <strong>Picture:</strong>
     <%= image_tag(@unicorn.picture_url, width: 200) if @unicorn.picture.present? %>
 </p>
-
-<%= link_to 'Edit', edit_unicorn_path(@unicorn) %> |
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_unicorn_path(@unicorn) %> |
+  <% end %>
 <%= link_to 'Back', unicorns_path %>

@@ -22,9 +22,12 @@
         <td><%= unicorn.source %></td>
         <td><%= unicorn.magical %></td>
         <td><%= image_tag unicorn.picture_url, width: 100 if unicorn.picture.present? %></td>
-        <td><%= link_to 'Show', unicorn %></td>
-        <td><%= link_to 'Edit', edit_unicorn_path(unicorn) %></td>
-        <td><%= link_to 'Destroy', unicorn, method: :delete, data: { confirm: 'Whyyyyyyy, do you want to delete me. Are you sure????' } %></td>
+
+        <% if user_signed_in? %>
+          <td><%= link_to 'Show', unicorn %></td>
+          <td><%= link_to 'Edit', edit_unicorn_path(unicorn) %></td>
+          <td><%= link_to 'Destroy', unicorn, method: :delete, data: { confirm: 'Whyyyyyyy, do you want to delete me. Are you sure????' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
