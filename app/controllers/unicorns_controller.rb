@@ -1,5 +1,6 @@
 class UnicornsController < ApplicationController
   before_action :set_unicorn, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: :index
 
   # GET /unicorns
   # GET /unicorns.json
@@ -24,7 +25,7 @@ class UnicornsController < ApplicationController
   # POST /unicorns
   # POST /unicorns.json
   def create
-    @unicorn = Unicorn.new(unicorn_params)
+    @unicorn = Unicorn.new(unicorn_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @unicorn.save

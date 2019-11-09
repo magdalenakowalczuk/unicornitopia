@@ -32,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Unicorn', new_unicorn_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Unicorn', new_unicorn_path %>
+<% end %>
