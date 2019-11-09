@@ -1,0 +1,42 @@
+<%= form_with(model: unicorn, local: true) do |form| %>
+  <% if unicorn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unicorn.errors.count, "error") %> prohibited this unicorn from being saved:</h2>
+
+      <ul>
+        <% unicorn.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :magical %>
+    <%= form.check_box :magical %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

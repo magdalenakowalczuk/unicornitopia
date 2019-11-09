@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unicorn.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @unicorn.year %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @unicorn.source %>
+</p>
+
+<p>
+  <strong>Magical:</strong>
+  <%= @unicorn.magical %>
+</p>
+
+<p>
+    <strong>Picture:</strong>
+    <%= image_tag(@unicorn.picture_url, width: 200) if @unicorn.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_unicorn_path(@unicorn) %> |
+<%= link_to 'Back', unicorns_path %>
